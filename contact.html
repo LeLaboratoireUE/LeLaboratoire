@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Le Laboratoire</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🧙‍♂️</span>
+                <span>Le Laboratoire</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="products.html" class="nav-link">Produits</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            </ul>
+            <div class="nav-cart">
+                <a href="cart.html" class="cart-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="contact-section" style="padding-top: 120px;">
+        <div class="container">
+            <h1 class="section-title">Contactez-Nous</h1>
+            <p class="section-subtitle">
+                Notre équipe est disponible pour répondre à toutes vos questions
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">✈️</div>
+                        <div>
+                            <h3>Telegram - Canal</h3>
+                            <p>Suivez nos actualités</p>
+                            <a href="https://t.me/LeLaboratoireUE" target="_blank" style="color: var(--primary); font-weight: 600;">@LeLaboratoireUE</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <h3>Telegram - Support</h3>
+                            <p>Contact direct</p>
+                            <a href="https://t.me/Druide" target="_blank" style="color: var(--primary); font-weight: 600;">@Druide</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <h3>Disponibilité</h3>
+                            <p>7j/7 - Réponse en moins de 24h</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌍</div>
+                        <div>
+                            <h3>Zone de livraison</h3>
+                            <p>Europe uniquement</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h2 style="margin-bottom: 1.5rem; font-size: 1.75rem;">Formulaire de Contact</h2>
+                    
+                    <!-- FormSubmit.co - Service gratuit d'envoi d'emails -->
+                    <form action="https://formsubmit.co/votre-email@example.com" method="POST" id="contactForm">
+                        <!-- Configuration FormSubmit -->
+                        <input type="hidden" name="_subject" value="Nouveau message - Le Laboratoire du Druide">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="box">
+                        <input type="hidden" name="_next" value="https://votre-site.com/contact.html?success=true">
+                        
+                        <div class="form-group">
+                            <label for="contactName">Nom complet *</label>
+                            <input type="text" id="contactName" name="name" required placeholder="Jean Dupont">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email *</label>
+                            <input type="email" id="contactEmail" name="email" required placeholder="jean.dupont@exemple.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Objet *</label>
+                            <select id="contactSubject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="Question sur une commande">Question sur une commande</option>
+                                <option value="Information produit">Information produit</option>
+                                <option value="Question technique">Question technique</option>
+                                <option value="Paiement / Cryptomonnaie">Paiement / Cryptomonnaie</option>
+                                <option value="Livraison">Livraison</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message *</label>
+                            <textarea id="contactMessage" name="message" required placeholder="Décrivez votre demande..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                            Envoyer le message
+                        </button>
+                    </form>
+                    
+                    <!-- Message de succès -->
+                    <div id="successMessage" style="display: none; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 255, 136, 0.1); border: 2px solid var(--accent); border-radius: var(--radius-md); text-align: center;">
+                        <h3 style="color: var(--accent); margin-bottom: 0.5rem;">✅ Message envoyé !</h3>
+                        <p style="color: var(--text-secondary);">Nous vous répondrons dans les plus brefs délais.</p>
+                    </div>
+                    
+                    <script>
+                        // Vérifier si le formulaire a été soumis avec succès
+                        const urlParams = new URLSearchParams(window.location.search);
+                        if (urlParams.get('success') === 'true') {
+                            document.getElementById('successMessage').style.display = 'block';
+                            document.getElementById('contactForm').style.display = 'none';
+                            
+                            // Nettoyer l'URL après 3 secondes
+                            setTimeout(() => {
+                                window.history.replaceState({}, document.title, 'contact.html');
+                            }, 3000);
+                        }
+                    </script>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 2px solid var(--primary);">
+                <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: var(--primary);">
+                    ℹ️ Avant de nous contacter
+                </h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.8;">
+                    Consultez notre <a href="faq.html" style="color: var(--primary); font-weight: 600;">FAQ</a> 
+                    pour trouver rapidement des réponses aux questions les plus fréquentes.
+                </p>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    Pour toute question urgente, privilégiez le contact Telegram pour une réponse plus rapide.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🧙‍♂️ Le Laboratoire</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem;">
+                        Excellence en recherche chimique depuis 2020.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://t.me/LeLaboratoireUE" target="_blank" class="social-link">✈️</a>
+                        <a href="https://t.me/Druide" target="_blank" class="social-link">💬</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="conditions-vente.html">Conditions de vente</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Paiements</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+                        <span class="badge badge-purity" style="width: fit-content;">₿ BTC</span>
+                        <span class="badge badge-purity" style="width: fit-content;">₮ USDT</span>
+                        <span class="badge badge-purity" style="width: fit-content;">Ł LTC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Le Laboratoire. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <nav class="mobile-nav">
+        <div class="mobile-nav-container">
+            <a href="index.html" class="mobile-nav-item">
+                <span class="mobile-nav-icon">🏠</span>
+                <span class="mobile-nav-label">Accueil</span>
+            </a>
+            <a href="https://t.me/LeLaboratoireUE" target="_blank" class="mobile-nav-item">
+                <span class="mobile-nav-icon">✈️</span>
+                <span class="mobile-nav-label">Canal</span>
+            </a>
+            <a href="https://t.me/Druide" target="_blank" class="mobile-nav-item active">
+                <span class="mobile-nav-icon">💬</span>
+                <span class="mobile-nav-label">Contact</span>
+            </a>
+            <a href="cart.html" class="mobile-nav-item">
+                <span class="mobile-nav-icon">🛒</span>
+                <span class="mobile-nav-label">Panier</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

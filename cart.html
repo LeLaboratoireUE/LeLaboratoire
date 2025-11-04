@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Panier d'achat - Le Laboratoire du Druide">
+    <title>Panier | Le Laboratoire du Druide</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">🧙‍♂️</span>
+                <span>Le Laboratoire du Druide</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="products.html" class="nav-link">Produits</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="faq.html" class="nav-link">FAQ</a></li>
+            </ul>
+            <div class="nav-cart">
+                <a href="cart.html" class="cart-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section" style="padding-top: 120px;">
+        <div class="container">
+            <h1 class="section-title">🛒 Votre Panier</h1>
+
+            <!-- Empty Cart Message -->
+            <div id="emptyCart" class="cart-empty" style="display: none;">
+                <div class="cart-empty-icon">🛒</div>
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-secondary);">
+                    Votre panier est vide
+                </h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.125rem;">
+                    Découvrez nos produits de recherche de haute qualité
+                </p>
+                <a href="products.html" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    Parcourir les produits
+                </a>
+            </div>
+
+            <!-- Cart Container -->
+            <div class="cart-container" id="cartContainer">
+                <!-- Cart Items -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h2 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Votre Panier</h2>
+                            <p style="color: var(--text-secondary); font-size: 1rem;">
+                                Quantité totale : <span id="totalQuantity" style="color: var(--primary); font-weight: 700;">0g</span>
+                            </p>
+                        </div>
+                        <button class="btn btn-outline" id="clearCartBtn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                            Vider le panier
+                        </button>
+                    </div>
+                    <div class="cart-items" id="cartItems">
+                        <!-- Cart items will be injected by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary" id="cartSummary">
+                    <h2>Résumé de la commande</h2>
+                    
+                    <div style="margin: 1.5rem 0; padding: 1rem; background: rgba(0, 212, 255, 0.1); border-radius: var(--radius-md); border: 1px solid rgba(0, 212, 255, 0.3);">
+                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                            <span style="font-size: 1.25rem;">📦</span>
+                            <span style="font-weight: 600; color: var(--primary);">Quantités commandées</span>
+                        </div>
+                        <div style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-top: 0.5rem;" id="quantitiesList">
+                            Aucune quantité
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 2rem 0;">
+                        <div class="summary-line">
+                            <span>Sous-total</span>
+                            <span id="cartTotal">0€</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Livraison</span>
+                            <span style="color: var(--accent);">GRATUITE</span>
+                        </div>
+                        <div class="summary-line">
+                            <span style="font-size: 1.5rem;">Total</span>
+                            <span id="cartTotal2" style="font-size: 1.5rem;">0€</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" id="checkoutBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        Passer la commande
+                    </button>
+
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: var(--radius-md); border: 1px solid rgba(0, 212, 255, 0.3);">
+                        <h4 style="margin-bottom: 1rem; color: var(--primary); font-size: 1.125rem;">
+                            💳 Méthodes de paiement
+                        </h4>
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem;">
+                            <span>₿ Bitcoin (BTC)</span>
+                            <span>₮ Tether (USDT)</span>
+                            <span>Ł Litecoin (LTC)</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(0, 255, 136, 0.1); border-radius: var(--radius-md); border: 1px solid rgba(0, 255, 136, 0.3);">
+                        <h4 style="margin-bottom: 1rem; color: var(--accent); font-size: 1.125rem;">
+                            ✓ Garanties
+                        </h4>
+                        <ul style="font-size: 0.875rem; color: var(--text-secondary); list-style: none; line-height: 1.8;">
+                            <li>✓ Pureté >99.8%</li>
+                            <li>✓ COA fourni</li>
+                            <li>✓ Emballage discret</li>
+                            <li>✓ Livraison 24-48h</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Shopping -->
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: var(--bg-card); border-radius: var(--radius-lg);">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.125rem;">
+                    Besoin de plus de produits pour votre recherche ?
+                </p>
+                <a href="products.html" class="btn btn-outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Continuer mes achats
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Desktop -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🧙‍♂️ Le Laboratoire du Druide</h3>
+                    <p style="color: var(--text-secondary); margin-top: 1rem; line-height: 1.8;">
+                        Votre source fiable pour des produits chimiques de recherche 
+                        de haute qualité. Excellence et transparence depuis 2020.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://t.me/LeLaboratoireUE" target="_blank" class="social-link" title="Canal Telegram">
+                            ✈️
+                        </a>
+                        <a href="https://t.me/Druide" target="_blank" class="social-link" title="Contact Telegram">
+                            💬
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="products.html">Produits</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="conditions-vente.html">Conditions de vente</a></li>
+                        <li><a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+                        <li><a href="contact.html">Support client</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Paiements Acceptés</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Cryptomonnaies uniquement
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <span class="badge badge-purity" style="width: fit-content;">₿ Bitcoin (BTC)</span>
+                        <span class="badge badge-purity" style="width: fit-content;">₮ Tether (USDT)</span>
+                        <span class="badge badge-purity" style="width: fit-content;">Ł Litecoin (LTC)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Le Laboratoire du Druide. Tous droits réservés.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.875rem;">
+                    Produits destinés exclusivement à la recherche scientifique.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-container">
+            <a href="index.html" class="mobile-nav-item">
+                <span class="mobile-nav-icon">🏠</span>
+                <span class="mobile-nav-label">Accueil</span>
+            </a>
+            <a href="https://t.me/LeLaboratoireUE" target="_blank" class="mobile-nav-item">
+                <span class="mobile-nav-icon">✈️</span>
+                <span class="mobile-nav-label">Canal</span>
+            </a>
+            <a href="https://t.me/Druide" target="_blank" class="mobile-nav-item">
+                <span class="mobile-nav-icon">💬</span>
+                <span class="mobile-nav-label">Contact</span>
+            </a>
+            <a href="cart.html" class="mobile-nav-item active">
+                <span class="mobile-nav-icon">🛒</span>
+                <span class="mobile-nav-label">Panier</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="js/script.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Mise à jour du total dans le résumé
+        const total = document.getElementById('cartTotal');
+        const total2 = document.getElementById('cartTotal2');
+        if (total && total2) {
+            const observer = new MutationObserver(() => {
+                total2.textContent = total.textContent;
+            });
+            observer.observe(total, { childList: true, characterData: true, subtree: true });
+        }
+    </script>
+</body>
+</html>
